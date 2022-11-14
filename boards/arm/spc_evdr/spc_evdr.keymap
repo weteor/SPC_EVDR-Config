@@ -10,13 +10,10 @@
 #include <dt-bindings/zmk/outputs.h>
 
 #define BAS_L 0
-#define SNUG_L 1
 #define SYM_L 2
 #define NAV_L 3
 #define NUM_L 4
 #define CFG_L 5
-#define BLE_L 6
-#define GAME 7
 
 // repeating space/backspace
 &lt { quick_tap_ms = <200>; };
@@ -28,63 +25,63 @@
         combo_slash {
             timeout-ms = <50>;
             key-positions = <1 11>;
-            layers = <BAS_L SNUG_L>;
+            layers = <BAS_L>;
             bindings = <&kp SLASH>;
             };
         combo_lBracket {
             timeout-ms = <50>;
             key-positions = <2 12>;
-            layers = <BAS_L SNUG_L>;
+            layers = <BAS_L>;
             bindings = <&kp LEFT_BRACKET>;
             };
         combo_lBrace {
             timeout-ms = <50>;
             key-positions = <3 13>;
-            layers = <BAS_L SNUG_L>;
+            layers = <BAS_L>;
             bindings = <&kp LEFT_BRACE>;
             };
         combo_lParanthesis {
             timeout-ms = <50>;
             key-positions = <4 14>;
-            layers = <BAS_L SNUG_L>;
+            layers = <BAS_L>;
             bindings = <&kp LEFT_PARENTHESIS>;
             };
         combo_equal {
             timeout-ms = <50>;
             key-positions = <5 15>;
-            layers = <BAS_L SNUG_L>;
+            layers = <BAS_L>;
             bindings = <&kp EQUAL>;
             };
 
         combo_asterix {
             timeout-ms = <50>;
             key-positions = <6 16>;
-            layers = <BAS_L SNUG_L>;
+            layers = <BAS_L>;
             bindings = <&kp ASTERISK>;
             };
 
         combo_rParanthesis {
             timeout-ms = <50>;
             key-positions = <7 17>;
-            layers = <BAS_L SNUG_L>;
+            layers = <BAS_L>;
             bindings = <&kp RIGHT_PARENTHESIS>;
             };
         combo_rBrace {
             timeout-ms = <50>;
             key-positions = <8 18>;
-            layers = <BAS_L SNUG_L>;
+            layers = <BAS_L>;
             bindings = <&kp RIGHT_BRACE>;
             };
         combo_rBracket {
             timeout-ms = <50>;
             key-positions = <9 19>;
-            layers = <BAS_L SNUG_L>;
+            layers = <BAS_L>;
             bindings = <&kp RIGHT_BRACKET>;
             };
         combo_bSlash {
             timeout-ms = <50>;
             key-positions = <10 20>;
-            layers = <BAS_L SNUG_L>;
+            layers = <BAS_L>;
             bindings = <&kp BACKSLASH>;
             };
 
@@ -110,12 +107,6 @@
             bindings = <&mo CFG_L>;
             };
 
-        combo_bleLayer {
-            timeout-ms = <50>;
-            key-positions = <37 38>;
-            bindings = <&mo BLE_L>;
-            };
-
         combo_capsWord {
             timeout-ms = <50>;
             key-positions = <23 29>;
@@ -134,10 +125,7 @@
             bindings = <&kp>, <&kp>;
         };
     };
-    
-    //&sl {
-    //release-after-ms = <750>;
-    //};
+
     
 // COMBOS
 // vertical
@@ -151,62 +139,43 @@
 // W + E - tab
 // I + O - backspace
 // C + , - word caps
-// both inner thumbs -> Layer CFG
-// both left thumbs  -> Layer BLE
+// both left bottom keys -> Layer CFG
 
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
-            label = " Colemak";
+            label = " Base";
 // -------------------------------     -------------------------------
-// |  Q  |  W  |  F  |  P  |  G  |  -  |  J  |  L  |  U  |  Y  |  '  | 
-// |A sft|R win|S alt|T ctl|  D  |     |  H  |N ctl|E alt|I win|O sft| 
-// |  Z  |  X  |  C  |  V  |  B  |  -  |  K  |  M  |  ,  |  .  |  ;  | 
-// ------|    Spc    |    Nav    |     |    Sym    |    Ent    |------
-//       -------------------------     -------------------------
+// |  Q  |  W  |  E  |  R  |  T  |  Y  |  U  |  I  |  O  |  P  | 
+// |A sft|S win|D alt|F ctl|  G  |  H  |J ctl|K alt|L win|' sft| 
+// |  Z  |  X  |  C  |  V  |  B  |  N  |  M  |  ,  |  .  |  ;  | 
+// |     |     |xxxxx| Nav | Spc/| Ent | Sym |xxxxx|     |     |
+//                           Num
+// -------------------------------     -------------------------------
             bindings = <
                 &kp C_MUTE
-                &kp Q       &kp W       &kp F       &kp P       &kp G     &kp J       &kp L       &kp U       &kp Y       &kp QUOT
-                &hm LSHFT A &hm LGUI R  &hm LALT S  &hm LCTRL T &kp D     &kp H       &hm RCTRL N &hm RALT E  &hm RGUI I  &hm RSHFT O
-                &kp Z       &kp X       &kp C       &kp V       &kp B     &kp K       &kp M       &kp COMMA   &kp DOT     &kp SEMI
-                &none       &none           &lt NUM_L SPACE       &mo NAV_L           &lt SYM_L RET         &none       &none
-//                 &none       &none                &mo NAV_L   &lt NUM_L SPACE   &kp RET     &mo SYM_L              &none       &none 
+                &kp Q       &kp W       &kp E       &kp R       &kp T     &kp Y       &kp U       &kp I       &kp O       &kp P
+                &hm LSHFT A &hm LGUI S  &hm LALT D  &hm LCTRL F &kp G     &kp H       &hm RCTRL J &hm RALT K  &hm RGUI L  &hm RSHFT QUOT
+                &kp Z       &kp X       &kp C       &kp V       &kp B     &kp N       &kp M       &kp COMMA   &kp DOT     &kp SEMI
+//                &none       &none           &lt NUM_L SPACE       &mo NAV_L           &lt SYM_L RET         &none       &none
+                &none       &none                &mo NAV_L   &lt NUM_L SPACE   &kp RET     &mo SYM_L              &none       &none 
             >;
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
         
-        snug_layer {
-            label = " Snug";
-// -------------------------------     -------------------------------
-// |  Q  |  L  |  D  |  M  |  B  |  -  |  J  |  F  |  O  |  U  |  '  | 
-// |S sft|R win|T alt|C ctl|  G  |     |  P  |N ctl|E alt|I win|A sft| 
-// |  Z  |  X  |  K  |  W  |  V  |  -  |  Y  |  H  |  ,  |  .  |  ;  | 
-// ------|    Spc    |    Nav    |     |    Sym    |    Ent    |------
-//       -------------------------     -------------------------
-            bindings = <
-                &kp C_MUTE
-                &kp Q       &kp L       &kp D       &kp M       &kp B         &kp J       &kp F       &kp O       &kp U       &kp QUOT
-                &hm LSHFT S &hm LGUI R  &hm LALT T  &hm LCTRL C &kp G         &kp P       &hm RCTRL N &hm RALT E  &hm RGUI I  &hm RSHFT A
-                &kp Z       &kp X       &kp K       &kp W       &kp V         &kp Y       &kp H       &kp COMMA   &kp DOT     &kp SEMI
-                &none       &none           &lt NUM_L SPACE       &mo NAV_L           &lt SYM_L RET         &none       &none
-//                &none       &none                &mo NAV_L   &lt NUM_L SPACE   &kp RET     &mo SYM_L              &none       &none 
-            >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
-        };
-
         sym_layer {
             label = " Symbol";
 // -------------------------------     -------------------------------
 // |  `  |  ^  |  @  |  $  |  ~  |  -  |     |     |     |     |     | 
-// |  &  |  !  |  +  |  _  |  #  |     |pg up|     |     |     |     | 
+// |  &  |  !  |  +  |  _  |  #  |     |pg up| ctrl| ralt| gui | sft | 
 // |  |  |  ?  |  -  |  %  |     |  -  |pg dn|     |     |     |     | 
-// ------|           |    CFG    |     |           |           |------
-//       -------------------------     -------------------------
+// |     |     |xxxxx|     |     |     |     |     |xxxxx|     |     |
+// -------------------------------     -------------------------------
             bindings = <
                 &kp C_MUTE 
                 &kp GRAVE   &kp CARET   &kp AT      &kp DOLLAR  &kp TILDE               &none       &none       &none       &none       &none
-                &kp AMPS    &kp EXCL    &kp PLUS    &kp UNDER   &kp HASH                &kp PG_UP   &none       &none       &none       &none
+                &kp AMPS    &kp EXCL    &kp PLUS    &kp UNDER   &kp HASH                &kp PG_UP   &kp RCTRL   &kp RALT    &kp RGUI    &kp RSHFT
                 &kp PIPE    &kp QMARK   &kp MINUS   &kp PERCENT &none                   &kp PG_DN   &none       &none       &none       &none
                 &none       &none                   &none       &none                   &none       &none                   &none       &none 
             >;
@@ -217,10 +186,10 @@
             label = " Navigation";
 // -------------------------------     -------------------------------
 // |     |     |     |     |     |  -  |     |pg dn| up  |pg up| del | 
-// |     |     |     |     |     |     |home |left |down |right| end | 
+// | sft | gui | alt | ctrl|     |     |home |left |down |right| end | 
 // |     |     |     |     |     |  -  |     |prev | play|stop | next| 
-// ------|           |           |     |    CFG    |           |------
-//       -------------------------     -------------------------
+// |     |     |xxxxx|     |     |     |     |     |xxxxx|     |     |
+// -------------------------------     -------------------------------
             bindings = <
                 &kp C_MUTE 
                 &none       &none       &none       &none       &none                   &none       &kp PG_UP   &kp UP      &kp PG_DN   &kp DEL
@@ -237,8 +206,8 @@
 // |     |  F9 | F10 | F11 | F12 |  -  |  +  | num7| num8| num9|  /  | 
 // |     |  F5 |  F6 |  F7 |  F8 |     |  0  | num4| num5| num6|  .  | 
 // |     |  F1 |  F2 |  F3 |  F4 |  -  |  -  | num1| num2| num3|  *  | 
-// ------|           |           |     |     =     |   ENTER   |------
-//       -------------------------     -------------------------
+// |     |     |xxxxx|     |     |     |  =  | ent |xxxxx|     |     |
+// -------------------------------     -------------------------------
             bindings = <
                 &kp C_MUTE 
                 &none       &kp F9      &kp F10     &kp F11     &kp F12                 &kp KP_PLUS &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_SLASH 
@@ -252,53 +221,18 @@
         cfg_layer {
             label = " Configuration";
 // -------------------------------     -------------------------------
-// |     |     |     |     |     |  -  |PSCRN|     |  ü  |     |     | 
-// |  ä  |     |  ß  |     |     |     |     |     |     |     |  oe | 
-// |numlk|     |     |     |     |  -  |     |     |     |     |     | 
-// ------|           |           |     |           |           |------
-//       -------------------------     -------------------------
-            bindings = <
-                &none
-                &kp C       &none       &to BAS_L    &to SNUG_L    &kp PSCRN               &none       &none       &none       &none       &none
-                &none       &none       &none        &none         &none                   &none       &none       &none       &none       &none
-                &kp KP_NUM  &none       &none        &none         &none                   &none       &none       &none       &none       &none
-                &none       &none                    &none         &none                   &none       &none                   &none       &none 
-            >;
-        };
-        
-        ble_layer {
-            label = " BLE stuff";
-// -------------------------------     -------------------------------
 // |     |     |     |     |     |  -  | USB | BLE |     |     |BTCLR| 
 // |     |     |     |     |     |     |     |     |     |     |     | 
-// |     |     |     |     |     |  -  |BT_0 |BT_1 |BT_2 |BT_3 |BT_4 | 
-// ------|           |           |     |           |           |------
-//       -------------------------     -------------------------
-            bindings = <
-                &none
-                &kp B       &none       &reset      &none       &bootloader         &out OUT_USB &out OUT_BLE &none        &none        &bt BT_CLR
-                &none       &none       &none       &none       &none               &none        &none        &none        &none        &none
-                &none       &none       &none       &none       &none               &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
-                &none       &none                   &none       &none               &none       &none                      &none        &none 
-            >;
-        };
-        
-        game_layer {
-            label = " Game";
+// |numlk|PSCRN|     |     |     |  -  | BT0 | BT1 | BT2 | BT3 | BT4 | 
+// |     |     |xxxxx|     |     |     |     |     |xxxxx|     |     |
 // -------------------------------     -------------------------------
-// |  Q  |  W  |  F  |  P  |  G  |  -  |  J  |  L  |  U  |  Y  |  '  | 
-// |A sft|R win|S alt|T ctl|  D  |     |  H  |N ctl|E alt|I win|O sft| 
-// |  Z  |  X  |  C  |  V  |  B  |  -  |  K  |  M  |  ,  |  .  |  ;  | 
-// ------|    Spc    |    Nav    |     |    Sym    |    Ent    |------
-//       -------------------------     -------------------------
             bindings = <
                 &none
-                &kp Q       &kp W       &kp E       &kp R       &kp T                   &kp Y       &kp U       &kp I       &kp O       &kp P
-                &kp A       &kp S       &kp D       &kp F       &kp G                   &kp H       &kp J       &kp K       &kp L       &kp QUOT
-                &kp Z       &kp X       &kp C       &kp V       &kp B                   &kp N       &kp M       &kp COMMA   &kp DOT     &kp SEMI
-                &none       &none       &lt SPACE   &none                               &kp RET     &mo SYM_L               &none       &none 
+                &kp C       &none       &reset       &none       &bootloader               &out OUT_USB &out OUT_BLE &none        &none        &bt BT_CLR
+                &none       &none       &none        &none         &none                   &none        &none        &none        &none        &none
+                &kp KP_NUM  &kp PSCRN   &none        &none         &none                   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+                &none       &none                    &none         &none                   &none        &none                     &none        &none 
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
     };
 };
