@@ -9,4 +9,7 @@ config ZMK_KEYBOARD_NAME
 config I2C
     default y
 
+config GPIO_PCA95XX
+    default y
+
 endif # SHIELD_SPC_EVDR
