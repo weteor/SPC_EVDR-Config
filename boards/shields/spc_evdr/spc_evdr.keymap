@@ -161,7 +161,7 @@
 //                &none       &none           &lt NUM_L SPACE       &mo NAV_L           &lt SYM_L RET         &none       &none
                 &none       &none                &mo NAV_L   &lt NUM_L SPACE   &kp RET     &mo SYM_L              &none       &none 
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            //sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
         
         sym_layer {
@@ -179,7 +179,7 @@
                 &kp PIPE    &kp QMARK   &kp MINUS   &kp PERCENT &none                   &kp PG_DN   &none       &none       &none       &none
                 &none       &none                   &none       &none                   &none       &none                   &none       &none 
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+            //sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
         
         nav_layer {
@@ -197,7 +197,7 @@
                 &none       &none       &none       &none       &none                   &none       &none       &none       &none       &none
                 &none       &none                   &none       &none                   &none       &none                   &none       &none 
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+            //sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
 
         num_layer {
@@ -215,7 +215,7 @@
                 &none       &kp F1      &kp F2      &kp F3      &kp F4                  &kp KP_MINUS &kp KP_N1  &kp KP_N2   &kp KP_N3   &kp KP_MULTIPLY
                 &none       &none                   &none       &none                   &kp KP_EQUAL &kp KP_ENTER           &none       &none 
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+            //sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
         
         cfg_layer {

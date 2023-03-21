@@ -11,6 +11,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          path:config/
       - name: Cache west modules
         uses: actions/cache@v2
         env:
@@ -33,14 +35,22 @@ jobs:
         run: west update
       - name: West Zephyr export
         run: west zephyr-export
-      - name: West Build (SPC_EVDR)
-        run: west build -s zmk/app -b spc_evdr -- -DZMK_CONFIG="${GITHUB_WORKSPACE}"
-      - name: SPC_EVDR Kconfig file
-        run: cat build/zephyr/.config | grep -v "^#" | grep -v "^$"
+      - name: list modules
+        run: west lis
+      - name: West Build (SPC_EVDR Xiao SAMD)
+        run: west build -s zmk/app -b seeeduino_xiao -d build/spc_evdr_xiao_samd -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config" -DSHIELD=spc_evdr
+      - name: West Build (SPC_EVDR Xiao BLE)
+        run: west build -s zmk/app -b seeeduino_xiao_ble -d build/spc_evdr_xiao_ble -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config" -DSHIELD=spc_evdr
+      - name: spc_SPC_EVDRebr .config
+        if: ${{ always() }}
+        run: cat -n build/zaphod/zephyr/.config
       - name: Rename zmk.uf2
-        run: cp build/zephyr/zmk.uf2 spc_evdr.uf2
-      - name: Archive (SPC_EVDR)
+        run: |
+          cp build/spc_evdr_xiao_samd/zephyr/zmk.uf2 spc_evdr_xiao_samd.uf2
+          cp build/spc_evdr_xiao_ble/zephyr/zmk.uf2 spc_evdr_xiao_ble.uf2
+      - name: Archive
         uses: actions/upload-artifact@v2
         with:
           name: firmware
-          path: spc_evdr.uf2
+          path: '*.uf2'
+      

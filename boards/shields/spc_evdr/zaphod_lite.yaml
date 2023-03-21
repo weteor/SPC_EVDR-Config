@@ -1,10 +1,11 @@
 identifier: spc_evdr
-name: spc_evdr
-type: mcu
+name: SPC_EVDR
+type: keyboard
 arch: arm
 toolchain:
   - zephyr
   - gnuarmemb
+  - xtools
 supported:
   - adc
   - usb_device

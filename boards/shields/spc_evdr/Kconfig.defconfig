@@ -1,0 +1,12 @@
+# Copyright (c) 2022 @weteor
+# SPDX-License-Identifier: MIT
+
+if SHIELD_SPC_EVDR
+
+config ZMK_KEYBOARD_NAME
+    default "SPC EVDR"
+
+config I2C
+    default y
+
+endif # SHIELD_SPC_EVDR
