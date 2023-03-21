@@ -8,7 +8,7 @@
 
 / {
     model = "spc_evdr";
-	compatible = "weteor,spc_evdr";
+    compatible = "weteor,spc_evdr";
 	
     chosen {
 		zephyr,display = &oled;
@@ -93,17 +93,11 @@
 	
 	col_io: pca95xx@20 {
 	    compatible = "nxp,pca95xx";
+	    status = "okay";
 	    gpio-controller;
 	    reg = <0x20>;
-	    label = "COL_IO";
+	    label = "PCA9555";
 	    #gpio-cells = <2>;
 	    ngpios = <8>;
 	};
 };
-
-&xiao_serial { status = "disabled"; };
-
-&xiao_spi { status = "disabled"; };
-
-
-

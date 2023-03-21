@@ -8,8 +8,48 @@ config ZMK_KEYBOARD_NAME
 
 config I2C
     default y
-
+    
 config GPIO_PCA95XX
     default y
+    
+config ZMK_DISPLAY
+  select LVGL_USE_IMG
+  # default y
+  
+choice ZMK_DISPLAY_STATUS_SCREEN
+        default ZMK_DISPLAY_STATUS_SCREEN_CUSTOM
+endchoice
+
+if ZMK_DISPLAY
+
+config SSD1306
+	default y
+
+config SSD1306_REVERSE_MODE
+	default y
+
+endif # ZMK_DISPLAY
+
+if LVGL
+config LVGL_HOR_RES_MAX
+	default 128
+
+config LVGL_VER_RES_MAX
+	default 32
+
+config LVGL_VDB_SIZE
+	default 64
+
+config LVGL_DPI
+	default 148
+
+config LVGL_BITS_PER_PIXEL
+	default 1
+
+choice LVGL_COLOR_DEPTH
+	default LVGL_COLOR_DEPTH_1
+endchoice
+
+endif # LVGL
 
 endif # SHIELD_SPC_EVDR

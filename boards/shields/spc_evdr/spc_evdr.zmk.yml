@@ -1,0 +1,8 @@
+file_format: "1"
+id: spc_evdr
+name: SPC_EVDR
+type: shield
+url: https://github.com/weteor/SPC_EVDR
+requires: [seeed_xiao]
+features:
+  - keys

@@ -1,4 +1,0 @@
-&xiao_i2c{
-	sda-pin = <4>;
-	scl-pin = <5>;
-};
