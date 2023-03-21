@@ -41,9 +41,9 @@ jobs:
         run: west build -s zmk/app -b seeeduino_xiao -d build/spc_evdr_xiao_samd -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config" -DSHIELD=spc_evdr
       - name: West Build (SPC_EVDR Xiao BLE)
         run: west build -s zmk/app -b seeeduino_xiao_ble -d build/spc_evdr_xiao_ble -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config" -DSHIELD=spc_evdr
-      - name: spc_SPC_EVDRebr .config
+      - name: SPC_EVDR .config
         if: ${{ always() }}
-        run: cat -n build/zaphod/zephyr/.config
+        run: cat -n build/spc_evdr_xiao_ble/zephyr/.config
       - name: Rename zmk.uf2
         run: |
           cp build/spc_evdr_xiao_samd/zephyr/zmk.uf2 spc_evdr_xiao_samd.uf2
