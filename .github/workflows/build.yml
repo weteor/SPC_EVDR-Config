@@ -36,7 +36,7 @@ jobs:
       - name: West Zephyr export
         run: west zephyr-export
       - name: list modules
-        run: west lis
+        run: west list
       - name: West Build (SPC_EVDR Xiao SAMD)
         run: west build -s zmk/app -b seeeduino_xiao -d build/spc_evdr_xiao_samd -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config" -DSHIELD=spc_evdr
       - name: West Build (SPC_EVDR Xiao BLE)
