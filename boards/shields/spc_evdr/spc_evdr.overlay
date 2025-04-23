@@ -89,6 +89,7 @@
 		com-invdir;
 		com-sequential;
 		prechargep = <0x22>;
+		inversion-on = true;
 	};
 	
 	col_io: pca95xx@20 {
